@@ -1,10 +1,10 @@
 import { Selector } from "testcafe";
+import loginPage from "../pages/loginPage";
+import homePage from "../pages/homePage";
 
 fixture(`Casos de prueba de la función login`).page`https://www.saucedemo.com/`;
 
 test("Un usuario debe poder iniciar sesión correctamente", async t => {
-  await t.typeText("#user-name", "standard_user");
-  await t.typeText("#password", "secret_sauce");
-  await t.click("#login-button");
-  await t.expect(Selector(".title").withText("PRODUCTS").exists).ok();
+  await loginPage.enviarInfo("standard_user", "secret_sauce");
+  await t.expect(homePage.titulo.exists).ok();
 });
