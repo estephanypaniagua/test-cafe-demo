@@ -7,11 +7,15 @@
     "test": "tests"
   },
   "dependencies": {
+    "dotenv": "^16.0.2",
     "testcafe": "^2.0.0"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run test:chrome",
+    "test:chrome": "testcafe chrome .\tests",
+    "test:firefox": "testcafe firefox .\tests",
+    "test:all": "testcafe all .\tests"
   },
   "repository": {
     "type": "git",
